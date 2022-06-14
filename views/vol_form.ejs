@@ -1,21 +1,33 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+  <body>
+    <%- include("./partials/nav.ejs") %>
 
-  <div class="">
-    <form action="/volunters/register" method="POST">
-      <label for="title">Blog title:</label>
-      <input type="text" id="title" name="title" required>
-      <label for="snippet">Blog snippet:</label>
-      <input type="text" id="snippet" name="snippet" required>
-      <label for="body">Blog body:</label>
-      <textarea id="body" name="body" required></textarea>
-      <button>Submit</button>
-    </form>
-  </div>
+    <div class="">
+      <form action="/volunters/register" method="POST" id="vol-form">
+        <label for="title">Blog title:</label>
+        <input type="text" id="title" name="title" required />
+        <label for="snippet">Blog snippet:</label>
+        <input type="text" id="snippet" name="snippet" required />
+        <label for="body">Blog body:</label>
+        <textarea id="body" name="body" required></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
 
-  <%- include("./partials/footer.ejs") %>
-</body>
+    <script>
+      document.forms["vol-form"].addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const resp = await fetch(event.target.action, {
+          method: "POST",
+          body: new URLSearchParams(new FormData(event.target)),
+        });
+        const body = await resp.json();
+        console.log(body);
+      });
+    </script>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
 </html>

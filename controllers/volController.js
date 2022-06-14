@@ -1,4 +1,6 @@
 const Vol = require('../models/volunters');
+const mailController = require('./mailController')
+
 
 const vol_index = (req, res) => {
   res.send("hi vol");
@@ -10,7 +12,8 @@ const vol_form = (req, res) => {
 
 const vol_add = (req, res) => {
   console.log(req.body)
-  res.send('vol addding');
+  mailController.sendmail(req,res);
+  res.json({ message: "message send" });
 }
 
 module.exports = {
