@@ -2,7 +2,7 @@ const {Ambassador} =  require('../models')
 const mailController = require("./mailController");
 
 const index = (req, res) => {
-  res.render("ca");
+  res.render("ca_main");
 };
 
 const form = (req, res) => {
