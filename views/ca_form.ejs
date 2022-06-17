@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Open+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Campus Ambassador Athena 22</title>
+  </head>
+  <body>
+
+<div class="container-fluid">
+<img src="./assets/img/athena.png"  class="img-responsive img-fluid d-block mx-auto" style="height:100px;" alt="">
+<div class="row mx-auto text-center">
+    <h1 class="mx-auto text-uppercase h-font">
+      <span style="color:#1fa2ff;font-size:larger">A</span>then<span style="color:#1fa2ff;font-size:larger">A</span>
+    </h1>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-md-6 text-capitalize text-center mx-auto mt-3 "><h3 class="text-center">Campus Ambassador program registration</h3></div>
+  </div>
+    <div class="inner-form-wrapper row mx-auto py-5">
+        <div class="inner-form-container col-md-8 mx-auto">
+
+            <form action="/ca/register" method="POST" id="ca-form" >
+                <div class="row mx-auto">
+
+                    <div class="mb-3 mt-3 col-md-8">
+                        <label for="name" class="form-label">Name</label>
+                        <input required type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                      </div>
+
+                      <div class="mb-3 mt-3 col-md-4">
+                        <label for="department" class="form-label">Department</label>
+                        <input required type="text" class="form-control" id="department" placeholder="Enter department" name="department">
+                      </div>
+                </div>
+
+                <div class="row mx-auto">
+
+                    <div class="col-md-6 mb-3 mt-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input required type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+                  
+                    </div>
+                    <div class="col-md-6 mb-3 mt-3">
+                        <label for="confirmpassword" class="form-label">Confirm Password </label>
+                        <input required type="confirmpassword" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                  
+                    </div>
+                </div>
+
+                <div class="row mx-auto">
+
+                    <div class="col-md-5 mb-3 mt-3">
+                        <label for="whtsappno" class="form-label">Whatsapp No</label>
+                        <input pattern="[789][0-9]{9}" required type="whtsappno" class="form-control" id="whtsappno" placeholder="Enter whtsappno" name="phone">
+                  
+                    </div>
+                    <div class="col-md-7 mb-3 mt-3">
+                        <label for="alternativenno" class="form-label">Alternative No (optional) </label>
+                        <input pattern="[789][0-9]{9}" type="alternativenno" class="form-control" id="alternativenno" placeholder="Enter alternativenno" name="phone2">
+                  
+                    </div>
+                </div>
+
+
+                <div class="row mx-auto">
+
+                 <div class="col-md-8 mx-auto mb-3 mt-3">
+                    <label for="college" class="form-label">College  </label>              
+                    <input required type="college" class="form-control" id="college" placeholder="Enter college" name="college">
+
+                 </div>
+                 <div class="col-md-4 mx-auto mb-3 mt-3">
+                    <label for="year" class="form-label">Year  </label>              
+                    <input required type="year" class="form-control" id="year" placeholder="Enter year" name="year">
+
+                 </div>
+
+                 
+                </div>
+
+                <div class="row mx-auto">
+                    <div class="col-md-4">
+                        <label for="district" class="form-label">College District  </label>              
+                        <input required type="district" class="form-control" id="district" placeholder="Enter district" name="district">
+    
+                    </div>
+                    <div class="col-md-8">
+                        <label for="email" class="form-label">Mail ID  </label>              
+                        <input required type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    
+                    </div>
+                </div>
+              
+              <button class="btn ms-auto mt-3" id="submit-btn">
+                submit
+              </button>
+              </form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+      window.onload = function () {
+          var txtPassword = document.getElementById("password");
+          var txtConfirmPassword = document.getElementById("confirmPassword");
+          txtPassword.onchange = ConfirmPassword;
+          txtConfirmPassword.onkeyup = ConfirmPassword;
+          function ConfirmPassword() {
+              txtConfirmPassword.setCustomValidity("");
+              if (txtPassword.value != txtConfirmPassword.value) {
+                  txtConfirmPassword.setCustomValidity("Passwords do not match.");
+              }
+          }
+      }
+
+
+      //form submit
+
+      document.forms["ca-form"].addEventListener("submit", async (event) => {
+          event.preventDefault();
+          document.getElementById('submit-btn').innerText ="Loading..."
+          const resp = await fetch(event.target.action, {
+            method: "POST",
+            body: new URLSearchParams(new FormData(event.target)),
+          });
+          const res = await resp.json();
+          console.log(res);
+          document.getElementById('submit-btn').innerText ="submit"
+          res.Ok ? window.location='../ca/success' : res.repeat ? alert('Already registered'): alert('Something went wrong. Please try later.')
+
+        });
+
+
+
+  </script>
+
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

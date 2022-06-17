@@ -1,8 +1,12 @@
-const {Volunters} =  require('../models')
+const {Ambassador} =  require('../models')
 const mailController = require("./mailController");
 
 const index = (req, res) => {
-  res.render("vol");
+  res.render("ca");
+};
+
+const form = (req, res) => {
+  res.render("ca_form");
 };
 
 const success = (req, res) => {
@@ -13,11 +17,12 @@ const add = (req, res) => {
   console.log(req.body);
   // mailController.sendmail(req, res);
 
-  Volunters.create(req.body)
+  Ambassador.create(req.body)
     .then((result) => {
       res.json({ Ok: true });
     })
     .catch((err) =>{ 
+      console.log(err)
       err.name == 'SequelizeUniqueConstraintError' ? res.json({ Ok: false , repeat:true }) : res.json({ Ok: false });
     });
 };
@@ -25,5 +30,6 @@ const add = (req, res) => {
 module.exports = {
   index,
   add,
+  form,
   success,
 };

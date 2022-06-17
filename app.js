@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const volunterRoutes = require('./routes/volunterRoutes');
+const caRoutes = require('./routes/caRoutes');
+
 const db = require("./models");
 
 // express app
@@ -23,7 +25,7 @@ app.get('/', (req, res) => {
 
 // blog routes
 app.use('/volunters', volunterRoutes);
-// app.use('/ambassador', ambassadorRoutes);
+app.use('/ca', caRoutes);
 
 
 // 404 page

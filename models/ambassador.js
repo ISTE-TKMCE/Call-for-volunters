@@ -14,7 +14,70 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Ambassador.init({
-    name: DataTypes.STRING
+    name:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    department:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    password:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    phone:  {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    phone2:  {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+    },
+    college:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    year:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    district:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    email:  {
+      type: DataTypes.STRING,
+      allowNull:false,
+      unique: true,
+      validate:{
+        notEmpty:true
+      }
+    },
+
+
+
   }, {
     sequelize,
     modelName: 'Ambassador',
