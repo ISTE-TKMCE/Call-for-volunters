@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull:false,
+      unique: true,
       validate:{
         notEmpty:true
       }
@@ -33,6 +34,59 @@ module.exports = (sequelize, DataTypes) => {
 
     phone: {
       type: DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+
+    year: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+
+    branch: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+
+    branch: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+
+    college: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    p1: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    p2: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty:true
+      }
+    },
+    p3: {
+      type: DataTypes.STRING,
       allowNull:false,
       validate:{
         notEmpty:true

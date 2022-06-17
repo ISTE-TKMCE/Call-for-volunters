@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const volunterRoutes = require('./routes/volunterRoutes');
-const ambassadorRoutes = require('./routes/ambassadorRoutes');
 const db = require("./models");
 
 // express app

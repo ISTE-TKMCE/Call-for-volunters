@@ -1,11 +1,10 @@
-const express = require('express');
-const volController = require('../controllers/volController');
+const express = require("express");
+const volController = require("../controllers/volController");
 
 const router = express.Router();
 
-router.get('/', volController.vol_index);
-router.get('/register', volController.vol_form);
-router.post('/register', volController.vol_add);
-
+router.get("/", volController.index);
+router.post("/register", volController.add);
+router.get("/success", volController.success);
 
 module.exports = router;
