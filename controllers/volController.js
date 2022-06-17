@@ -6,12 +6,12 @@ const index = (req, res) => {
 };
 
 const success = (req, res) => {
-  res.render("ca_success");
-};
+  res.render("vol_success");
+};  
 
 const add = (req, res) => {
   console.log(req.body);
-  mailController.sendmail(req, res);
+  // mailController.sendmail(req, res);
 
   Volunters.create(req.body)
     .then((result) => {
