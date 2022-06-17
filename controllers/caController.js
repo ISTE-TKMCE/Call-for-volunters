@@ -15,7 +15,7 @@ const success = (req, res) => {
 
 const add = (req, res) => {
   console.log(req.body);
-  // mailController.sendmail(req, res);
+  mailController.sendmail(req, res);
 
   Ambassador.create(req.body)
     .then((result) => {

@@ -15,9 +15,10 @@ const sendmail = (req, res) => {
  
     const mailOptions = {
       from: "support@istetkmce.in",
-      to: "aravindkrishnanparayil@gmail.com",
-      subject: "ISTE : Contact Form response",
+      to: req.body.email,
+      subject: "Welcome Onboard : Contact Form response",
       text: `name : ${req.body.name} <br><br> email: ${req.body.email} <br><br> message:  ${req.body.message} <br><br>`,
+      html: `name : ${req.body.name} <br><br> email: ${req.body.email} <br><br> message:  ${req.body.message} <br><br>`
     };
   
     transporter.sendMail(mailOptions, function (error, info) {
