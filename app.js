@@ -7,6 +7,7 @@ const db = require("./models");
 
 // express app
 const app = express();
+const port = process.env.PORT|| 3000;
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -35,7 +36,7 @@ app.use((req, res) => {
 
 //database connection
 db.sequelize.sync().then(req =>{ 
-    app.listen(3000 , ()=>{
+    app.listen(port , ()=>{
         console.log("server running");
     })
 });
