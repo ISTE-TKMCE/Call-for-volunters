@@ -17,7 +17,8 @@ const add = (req, res) => {
     .then((result) => {
       res.json({ Ok: true });
     })
-    .catch((err) =>{ 
+    .catch((err) =>{
+      console.log(err)
       err.name == 'SequelizeUniqueConstraintError' ? res.json({ Ok: false , repeat:true }) : res.json({ Ok: false });
     });
 };
