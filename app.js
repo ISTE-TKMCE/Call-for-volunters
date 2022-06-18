@@ -19,12 +19,12 @@ app.use(morgan('dev'));
 
 // routes
 app.get('/', (req, res) => {
-  res.redirect('/volunters');
+  res.redirect('/volunteers');
 });
 
 
 // blog routes
-app.use('/volunters', volunterRoutes);
+app.use('/volunteers', volunterRoutes);
 app.use('/ca', caRoutes);
 
 
