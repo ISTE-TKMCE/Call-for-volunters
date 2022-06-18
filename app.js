@@ -32,10 +32,10 @@ app.use('/ca', caRoutes);
 app.use((req, res) => {
   res.send("page not found");
 });
-
+const port = process.env.PORT|| 3000;
 //database connection
 db.sequelize.sync().then(req =>{ 
-    app.listen(3000 , ()=>{
+    app.listen(port , ()=>{
         console.log("server running");
     })
 });
