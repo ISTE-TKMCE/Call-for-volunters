@@ -48,13 +48,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    branch: {
-      type: DataTypes.STRING,
-      allowNull:false,
-      validate:{
-        notEmpty:true
-      }
-    },
 
     branch: {
       type: DataTypes.STRING,

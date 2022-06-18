@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     phone2:  {
-      type: DataTypes.INTEGER,
-      allowNull:false,
+      type: DataTypes.STRING,
+      allowNull:true,
     },
     college:  {
       type: DataTypes.STRING,
