@@ -15,6 +15,7 @@ const add = (req, res) => {
 
   Volunters.create(req.body)
     .then((result) => {
+      console.log("success")
       res.json({ Ok: true });
     })
     .catch((err) =>{
