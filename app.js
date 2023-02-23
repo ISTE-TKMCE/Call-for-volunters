@@ -7,7 +7,7 @@ const db = require("./models");
 
 // express app
 const app = express();
-const port = process.env.PORT|| 3000;
+
 
 // register view engine
 app.set('view engine', 'ejs');
