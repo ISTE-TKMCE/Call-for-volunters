@@ -20,12 +20,12 @@ app.use(morgan('dev'));
 
 // routes
 app.get('/', (req, res) => {
-  res.redirect('/volunters');
+  res.redirect('/volunteers');
 });
 
 
 // blog routes
-app.use('/volunters', volunterRoutes);
+app.use('/volunteers', volunterRoutes);
 app.use('/ca', caRoutes);
 
 
@@ -33,7 +33,7 @@ app.use('/ca', caRoutes);
 app.use((req, res) => {
   res.send("page not found");
 });
-
+const port = process.env.PORT|| 3000;
 //database connection
 db.sequelize.sync().then(req =>{ 
     app.listen(port , ()=>{

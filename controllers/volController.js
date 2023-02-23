@@ -15,9 +15,11 @@ const add = (req, res) => {
 
   Volunters.create(req.body)
     .then((result) => {
+      console.log("success")
       res.json({ Ok: true });
     })
-    .catch((err) =>{ 
+    .catch((err) =>{
+      console.log(err)
       err.name == 'SequelizeUniqueConstraintError' ? res.json({ Ok: false , repeat:true }) : res.json({ Ok: false });
     });
 };

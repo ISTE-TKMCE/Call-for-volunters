@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull:false,
       validate:{
         notEmpty:true
@@ -48,13 +48,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    branch: {
-      type: DataTypes.STRING,
-      allowNull:false,
-      validate:{
-        notEmpty:true
-      }
-    },
 
     branch: {
       type: DataTypes.STRING,
