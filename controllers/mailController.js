@@ -16,14 +16,14 @@ const sendmail = (req, res) => {
     const mailOptions = {
       from: "support@istetkmce.in",
       to: req.body.email,
-      subject: "Welcome to Athena'22 !",
+      subject: "Welcome to Athena'23 !",
       html: `<center> <img src="https://athena.istetkmce.in/assets/img/athena.png" alt="athena logo" width="100" ></center>Greetings from ISTE TKMCE,<br><br>
-      Great to have you on board, ${req.body.name} ! You are the Face of Athena'22 at ${req.body.college} ! <br><br>
+      Great to have you on board, ${req.body.name} ! You are the Face of Athena'23 at ${req.body.college} ! <br><br>
       We will get in touch with you soon. <br><br>
     
       
       Regards,<br>
-      Team Athena'22 <br>
+      Team Athena'23 <br>
       ISTE TKMCE`   
     };
   
