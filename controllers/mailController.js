@@ -16,7 +16,7 @@ const sendmail = (req, res) => {
     const mailOptions = {
       from: "support@istetkmce.in",
       to: req.body.email,
-      subject: "Welcome to Athena'23 !",
+      subject: "Welcome to Athena'23!",
       html: `<center> <img src="https://iste-tkmce.github.io/TOOLS/logomail.jpg" alt="athena logo" width="100" ></center>Greetings from ISTE TKMCE,<br><br>
       Great to have you on board, ${req.body.name} ! You are the Face of Athena'23 at ${req.body.college} ! <br><br>
       We will get in touch with you soon. <br><br>
