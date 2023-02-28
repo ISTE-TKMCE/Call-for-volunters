@@ -15,7 +15,8 @@ const success = (req, res) => {
 
 const add = (req, res) => {
   console.log(req.body);
-  mailController.sendmail(req, res);
+  const code = `${(req.body.name).split(' ')[0]}_${(req.body.phone).slice((req.body.phone).length-4,(req.body.phone))}`
+  mailController.sendmail(req, res).then(response=>console.log(response)).catch(err=>console.log(err));
 
   Ambassador.create(req.body)
     .then((result) => {
