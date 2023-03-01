@@ -1,7 +1,6 @@
-const Ambassador = require("../models/ambassador")
+const {Ambassador} =  require('../models')
 const mailController = require("./mailController");
-const mongoose = require("mongoose")
-const mongoDB = process.env.MONGO_URI;
+
 const index = (req, res) => {
   res.render("ca_main");
 };
@@ -14,11 +13,9 @@ const success = (req, res) => {
   res.render("ca_success");
 };
 
-const add =async (req, res) => {
-  await mongoose.connect(mongoDB);
+const add = (req, res) => {
   console.log(req.body);
-  const ambassador = new Ambassador(req.body)
-  ambassador.save()
+  Ambassador.create(req.body)
     .then((result) => {
       res.json({ Ok: true });
     })
