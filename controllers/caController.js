@@ -15,7 +15,6 @@ const success = (req, res) => {
 
 const add = (req, res) => {
   console.log(req.body);
-  const code = `${(req.body.name).split(' ')[0]}_${(req.body.phone).slice((req.body.phone).length-4,(req.body.phone))}`
   Ambassador.create(req.body)
     .then((result) => {
       res.json({ Ok: true });
@@ -24,9 +23,7 @@ const add = (req, res) => {
       console.log(err)
       err.name == 'SequelizeUniqueConstraintError' ? res.json({ Ok: false , repeat:true }) : res.json({ Ok: false });
     });
-    mailController.sendmail(req, res).then(response=>console.log(response)).catch(err=>console.log(err));
-
-  
+    mailController.sendmail(req, res)
 };
 
 module.exports = {
