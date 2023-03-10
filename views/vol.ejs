@@ -576,14 +576,15 @@
     document.forms["vol-form"].addEventListener("submit", async (event) => {
       event.preventDefault();
       document.getElementById('submit-btn').innerText = "Loading..."
-      const resp = await fetch(event.target.action, {
-        method: "POST",
-        body: new URLSearchParams(new FormData(event.target)),
-      });
-      const res = await resp.json();
-      console.log(res);
+      // const resp = await fetch(event.target.action, {
+      //   method: "POST",
+      //   body: new URLSearchParams(new FormData(event.target)),
+      // });
+      // const res = await resp.json();
+      // console.log(res);
+      alert("Registration closed")
       document.getElementById('submit-btn').innerText = "submit"
-      res.Ok ? window.location = 'volunteers/success' : res.repeat ? alert('Already registered') : alert('Something went wrong. Please try later.')
+      // res.Ok ? window.location = 'volunteers/success' : res.repeat ? alert('Already registered') : alert('Something went wrong. Please try later.')
 
     });
   </script>
